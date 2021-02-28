@@ -1,18 +1,19 @@
 #ifndef _SPHERE_H_
 #define _SPHERE_H_
 
-#include "point.h"
-#include "ray.h"
-#include "hit.h"
+#include "object.h"
 
-typedef struct Sphere {
+class Sphere : public Object {
 	Point center;
 	float radius;
+	Color color;
 
-	inline Sphere() : radius(1.0f) {}
-	inline Sphere(const Point& c, float r) : center(c), radius(r) {}
+public:
+	inline Sphere() : center(Point(0.0f, 0.0f, 0.0f)), radius(1.0f) {}
+	inline Sphere(const Point& c, float r, const Color& _color) : center(c), radius(r), color(_color) {}
 
-	bool Intersect(const Ray& ray, Hit& hit);
-} Sphere;
+	bool Intersect(const Ray& ray, Hit& hit) const;
+	virtual Color GetColor() const { return color; }
+};
 
 #endif
