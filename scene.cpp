@@ -3,8 +3,8 @@
 #include "hit.h"
 #include <iostream>
 
-Color Scene::Trace(int x, int y) {
-	Ray cameraRay(Point(0.0f, 0.0f, 0.0f), Vec3(x, y, -1.0f));
+Color Scene::Trace(int u, int v) {
+	Ray cameraRay(Point(-1.2f, 1.8f, 0.0f), Vec3(u, v, -1000));
 
 	for (Sphere sphere : spheres) {
 		Hit hit;

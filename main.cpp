@@ -24,9 +24,11 @@ int main() {
 	// TODO
 	if (image.is_open()) {
 		image << "P3\n" << WIDTH << ' ' << HEIGHT << "\n255\n";
-		for (int y = 0; y < HEIGHT; y++) {
-			for (int x = 0; x < WIDTH; x++) {
-				Color color = scene.Trace(x, y);
+		for (int j = 0; j < HEIGHT; j++) {
+			for (int i = 0; i < WIDTH; i++) {
+				float u = float(i) / (WIDTH - 1);
+				float v = float(j) / (HEIGHT - 1);
+				Color color = scene.Trace(i, j);
 				image << color.r << ' ' << color.g << ' ' << color.b << '\n';
 			}
 		}
