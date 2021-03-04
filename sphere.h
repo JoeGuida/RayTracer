@@ -2,6 +2,7 @@
 #define _SPHERE_H_
 
 #include "object.h"
+#include "point.h"
 
 class Sphere : public Object {
 public:
@@ -14,6 +15,7 @@ public:
 
 	bool Intersect(const Ray& ray, Hit& hit) const;
 	virtual Color GetColor() const { return color; }
+	Vec3 GetNormal(const Point& point);
 };
 
 #endif

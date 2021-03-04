@@ -16,20 +16,20 @@ int main() {
 	Scene scene;
 
 	// Create the objects
-	Sphere sphere(Point(0.f, 0.f, -5.0f), 1.0f, Color(0, 0, 255));
+	Sphere sphere(Point(-2.4f, -1.8f, 10.0f), 1.0f, Color(0, 0, 1));
+	Sphere sphere1(Point(-1.2f, -1.2f, 15.0f), 0.75f, Color(0, 1, 0));
 
 	// Add the objects to the scene
 	scene.Add(sphere);
+	scene.Add(sphere1);
 	
 	// TODO
 	if (image.is_open()) {
 		image << "P3\n" << WIDTH << ' ' << HEIGHT << "\n255\n";
 		for (int j = 0; j < HEIGHT; j++) {
 			for (int i = 0; i < WIDTH; i++) {
-				float u = float(i) / (WIDTH - 1);
-				float v = float(j) / (HEIGHT - 1);
-				Color color = scene.Trace(i, j);
-				image << color.r << ' ' << color.g << ' ' << color.b << '\n';
+				Color color = scene.Trace(i, j) * 255.99f;
+				image << (int)color.x << ' ' << (int)color.y << ' ' << (int)color.z << '\n';
 			}
 		}
 		image.close();

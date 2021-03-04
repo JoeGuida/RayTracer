@@ -5,6 +5,7 @@
 
 typedef struct Hit {
 	Point point;
+	Vec3 normal;
 
 } Hit;
 

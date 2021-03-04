@@ -16,10 +16,12 @@ bool Sphere::Intersect(const Ray& ray, Hit& hit) const {
 	}
 	// Ray starts inside sphere
 	else if (eSq < rSq) {
-		hit.point = ray.origin + (a + f);
+		hit.point = ray.origin + ray.direction * (a + f);
+		hit.normal = Normalized(hit.point - position);
 		return true;
 	}
 	// Normal intersection
-	hit.point = ray.origin + (a - f);
+	hit.point = ray.origin + ray.direction * (a - f);
+	hit.normal = Normalized(hit.point - position);
 	return true;
 };
