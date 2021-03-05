@@ -17,7 +17,14 @@ Color Scene::Trace(int u, int v) {
 		if (sphere.Intersect(cameraRay, hit)) {
 			float diffuse = Diffuse(cameraRay.direction, hit.normal);
 
-			return sphere.GetColor() * diffuse;
+			Color color = ambient + sphere.color * diffuse;
+
+			// Clamp Values
+			color.x = std::min(color.x, 1.0f);
+			color.y = std::min(color.y, 1.0f);
+			color.z = std::min(color.z, 1.0f);
+
+			return color;
 		}
 	}
 

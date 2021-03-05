@@ -6,6 +6,7 @@
 #include <vector>
 
 class Scene {
+	float ambient = 0.0f;
 	std::vector<Sphere> spheres;
 
 public:
