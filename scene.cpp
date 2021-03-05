@@ -28,5 +28,5 @@ Color Scene::Trace(int u, int v) {
 		}
 	}
 
-	return Color(0, 0, 0);
+	return backgroundColor;
 }

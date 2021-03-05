@@ -16,19 +16,25 @@ int main() {
 	Scene scene;
 
 	// Create the objects
-	Sphere sphere(Point(-2.4f, -1.8f, 10.0f), 1.0f, Color(0, 0, 1));
-	Sphere sphere1(Point(-1.2f, -1.2f, 15.0f), 0.75f, Color(0, 1, 0));
+	Sphere sphere(Point(0.0f, 0.0f, 10.0f), 1.0f, Color(0, 0, 1));
+	Sphere sphere1(Point(-1.0f, 0.0f, 15.0f), 0.75f, Color(0, 1, 0));
+
+	// Create the lights
+	Light light(Point(-10.0f, 0, 0));
 
 	// Add the objects to the scene
 	scene.Add(sphere);
 	scene.Add(sphere1);
+
+	// Add the lights to the scene
+	scene.Add(light);
 	
 	// TODO
 	if (image.is_open()) {
 		image << "P3\n" << WIDTH << ' ' << HEIGHT << "\n255\n";
-		for (int j = 0; j < HEIGHT; j++) {
-			for (int i = 0; i < WIDTH; i++) {
-				Color color = scene.Trace(i, j) * 255.99f;
+		for (int i = HEIGHT; i > 0; i--) {
+			for (int j = WIDTH; j > 0; j--) {
+				Color color = scene.Trace(j, i) * 255.99f;
 				image << (int)color.x << ' ' << (int)color.y << ' ' << (int)color.z << '\n';
 			}
 		}
