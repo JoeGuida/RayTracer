@@ -1,4 +1,3 @@
-
 #include "vectors.h"
 
 // Vector/Vector Addition
@@ -278,4 +277,31 @@ Vec2 Reflection(const Vec2& vec, const Vec2& normal) {
 Vec3 Reflection(const Vec3& vec, const Vec3& normal) {
 	float d = Dot(vec, normal);
 	return vec - 2 * Dot(vec, normal) * normal;
+}
+
+// Clamping Values
+Vec2 Min(const Vec2& v, float value) {
+	float x = std::min(value, v.x);
+	float y = std::min(value, v.y);
+	return Vec2(x, y);
+}
+
+Vec3 Min(const Vec3& v, float value) {
+	float x = std::min(value, v.x);
+	float y = std::min(value, v.y);
+	float z = std::min(value, v.z);
+	return Vec3(x, y, z);
+}
+
+Vec2 Max(const Vec2& v, float value) {
+	float x = std::max(value, v.x);
+	float y = std::max(value, v.y);
+	return Vec2(x, y);
+}
+
+Vec3 Max(const Vec3& v, float value) {
+	float x = std::max(value, v.x);
+	float y = std::max(value, v.y);
+	float z = std::max(value, v.z);
+	return Vec3(x, y, z);
 }

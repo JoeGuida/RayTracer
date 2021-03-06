@@ -1,9 +1,9 @@
-
 #ifndef _VECTORS_H_
 #define _VECTORS_H_
 
 #include <cmath>
 #include <cfloat>
+#include <algorithm>
 
 #define CMP(x, y)                    \
 	(fabsf((x)-(y)) <= FLT_EPSILON * \
@@ -163,5 +163,11 @@ Vec3 Perpendicular(const Vec3& length, const Vec3& direction);
 // Vector Reflection
 Vec2 Reflection(const Vec2& vec, const Vec2& normal);
 Vec3 Reflection(const Vec3& vec, const Vec3& normal);
+
+// Clamping Values
+Vec2 Min(const Vec2& v, float value);
+Vec3 Min(const Vec3& v, float value);
+Vec2 Max(const Vec2& v, float value);
+Vec3 Max(const Vec3& v, float value);
 
 #endif
