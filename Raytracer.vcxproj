@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClInclude Include="color.h" />
     <ClInclude Include="hit.h" />
+    <ClInclude Include="light.h" />
     <ClInclude Include="object.h" />
     <ClInclude Include="point.h" />
     <ClInclude Include="ray.h" />
