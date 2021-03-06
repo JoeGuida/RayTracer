@@ -7,8 +7,8 @@
 #include <vector>
 
 class Scene {
-	float ambient = 0.0f;
-	Color backgroundColor = Color(0, 0, 0);
+	float ambient = 0.1f;
+	Color backgroundColor = Color(0.39f, 0.75f, 0.95f);
 
 	std::vector<Sphere> spheres;
 	std::vector<Light> lights;
