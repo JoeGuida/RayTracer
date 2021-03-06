@@ -16,14 +16,16 @@ int main() {
 	Scene scene;
 
 	// Create the objects
-	Sphere sphere(Point(0.0f, 0.0f, 10.0f), 1.0f, Color(0, 0, 1));
-	Sphere sphere1(Point(-1.0f, 0.0f, 15.0f), 0.75f, Color(0, 1, 0));
+	Sphere sphere(Point(-2.4f, -1.8f, 10.0f), 1.0f, Color(0, 0, 1));
+	Sphere sphere0(Point(-1.0f, -2.0f, 15.0f), 0.75f, Color(0, 1, 0));
+	Sphere sphere1(Point(-6.0f, -1.4f, 20.0f), 1.0f, Color(1, 0, 0));
 
 	// Create the lights
-	Light light(Point(-10.0f, 0, 0));
+	Light light(Point(-10.0f, 0, 0), 1.0f, Color(1, 1, 1));
 
 	// Add the objects to the scene
 	scene.Add(sphere);
+	scene.Add(sphere0);
 	scene.Add(sphere1);
 
 	// Add the lights to the scene
